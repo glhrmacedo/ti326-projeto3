@@ -94,10 +94,15 @@ while True:
                 else:
                     title = f'Computing thinking . . .'
 
+            title = font_large.render(title, True, write)
+            title_rect = title.get_rect()
+            title_rect.center = ((width / 2), 30)
+            screen.blit(title, title_rect)
+
             # check for AI move
             if user != player and not game_over:
                 if ai_turn:
-                    time.sleep(0.05)
+                    time.sleep(0.50)
                     move = tictactoe.minimax(board)
                     board = tictactoe.result(board, move)
                     ai_turn = False
